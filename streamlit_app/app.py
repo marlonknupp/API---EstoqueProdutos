@@ -19,12 +19,16 @@ categoria_dict = {
     for categoria in categorias
 }
 
+# Layout do Streamlit Hello com a cor de fundo azul claro
+st.set_page_config(page_title="Catálogo de Produtos", page_icon="🛍️", layout="wide")
+
+
 # Adicionando a cor de fundo azul claro e a faixa azul acima do catálogo de produtos
 st.markdown(
     """
     <style>
     /* Cor de fundo azul clara para toda a página */
-    .main {
+    body {
         background-color: #e6f7ff;  /* Azul claro */
     }
 
@@ -45,7 +49,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Criar expanders para cada categoria
+# Criar expanders para cada categoria com layout responsivo
 for categoria, produtos in categoria_dict.items():
     with st.expander(f"📂 {categoria}", expanded=False):
         if produtos:
